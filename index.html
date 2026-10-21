@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrafficFlow Simulator</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css/style.css">
+
+    <!-- Chart.js library for the comparison graph -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<body>
+    <h1>TrafficFlow</h1>
+    <h2>Network Congestion Control Simulator</h2>
+
+    <label for="algorithm">Choose Algorithm:</label>
+    <select id="algorithm">
+        <option value="leaky">Leaky Bucket</option>
+        <option value="token">Token Bucket</option>
+        <option value="both">Compare Both</option>
+    </select>
+
+    <br><br>
+
+    <label for="arrival">Packet Arrival Rate:</label>
+    <input type="number" id="arrival" value="5" min="1">
+
+    <label for="capacity">Bucket Capacity:</label>
+    <input type="number" id="capacity" value="10" min="1">
+
+    <br><br>
+
+    <button onclick="startSimulation()">Start</button>
+    <button onclick="resetSimulation()">Reset</button>
+    
+<h3>Live Network Traffic</h3>
+
+<div class="packet-counter">
+    <div class="counter-card">
+        <h4>Packets Generated</h4>
+        <p id="generatedCount">0</p>
+    </div>
+
+    <div class="counter-card">
+        <h4>Packets Transmitted</h4>
+        <p id="sentCount">0</p>
+    </div>
+
+    <div class="counter-card">
+        <h4>Packets Dropped</h4>
+        <p id="droppedCount">0</p>
+    </div>
+</div>
+
+<div class="network">
+    <div class="computer">💻 Sender</div>
+
+    <div class="packet-track">
+        <span class="packet"></span>
+        <span class="packet"></span>
+        <span class="packet"></span>
+    </div>
+
+    <div class="server">🖥️ Receiver</div>
+</div>
+
+    <h3>Simulation Results</h3>
+    <div id="results">Click Start to begin.</div>
+
+    <h3>Algorithm Comparison</h3>
+    <canvas id="comparisonChart"
+            width="600"
+            height="300"
+            style="max-width:100%;">
+    </canvas>
+
+    <!-- Load your JavaScript file from the main TrafficFlow folder -->
+    <script src="./script.js/script.js"></script>
+    
+<section class="project-info">
+    <h3>About TrafficFlow</h3>
+    <p>
+        TrafficFlow is a Network Congestion Control Simulator
+        that demonstrates how Leaky Bucket and Token Bucket
+        algorithms manage network packet traffic.
+    </p>
+
+    <h4>Project Objectives</h4>
+    <ul>
+        <li>Visualize packet transmission and packet loss.</li>
+        <li>Simulate network congestion using two algorithms.</li>
+        <li>Compare transmitted and dropped packets.</li>
+        <li>Understand how bucket capacity affects congestion.</li>
+    </ul>
+</section>
+
+</body>
+</html>
+
